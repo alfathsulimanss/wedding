@@ -5,6 +5,8 @@ use App\Http\Controllers\ManageWeddingController;
 use App\Http\Controllers\InvitationListController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SendWaNotifController;
+use App\Http\Controllers\LoveStoryController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +54,30 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/edit/{id}', [InvitationListController::class, 'edit']);
         Route::post('/delete/{id}', [InvitationListController::class, 'delete']);
     });
+    
+    Route::group(['prefix' => 'banners'], function () {
+        Route::get('/data/{wedding_id}', [App\Http\Controllers\BannerController::class, 'getBanners']);
+        Route::post('/store', [App\Http\Controllers\BannerController::class, 'store']);
+        Route::post('/update/{id}', [App\Http\Controllers\BannerController::class, 'update']);
+        Route::post('/delete/{id}', [App\Http\Controllers\BannerController::class, 'destroy']);
+    });
+    
+    Route::group(['prefix' => 'love-stories'], function () {
+        Route::get('/data/{wedding_id}', [LoveStoryController::class, 'getLoveStories']);
+        Route::post('/store', [LoveStoryController::class, 'store']);
+        Route::post('/update/{id}', [LoveStoryController::class, 'update']);
+        Route::post('/delete/{id}', [LoveStoryController::class, 'destroy']);
+    });
+    
+    // Gallery management routes
+    Route::group(['prefix' => 'galleries'], function () {
+        Route::get('/get', [GalleryController::class, 'getGalleries'])->name('galleries.get');
+        Route::post('/store', [GalleryController::class, 'store'])->name('galleries.store');
+        Route::delete('/{id}', [GalleryController::class, 'destroy'])->name('galleries.destroy');
+        Route::post('/update-order', [GalleryController::class, 'updateOrder'])->name('galleries.updateOrder');
+    });
 });
 
 Route::get('/landing/{slug}/{wedding_id}/{invited_id}/{invited_name}', [LandingController::class, 'index']);
 Route::get('/wa', [SendWaNotifController::class, 'sendWa']);
+Route::post('/rsvp/submit', [LandingController::class, 'submitRsvp'])->name('rsvp.submit');

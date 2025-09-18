@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Wedding;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use DataTables;
 
 class ManageWeddingController extends Controller
@@ -37,6 +38,13 @@ class ManageWeddingController extends Controller
             'ceremony_address' => 'required',
             'party' => 'required',
             'party_address' => 'required',
+            'google_maps_url' => 'nullable|url',
+            'waze_url' => 'nullable|url',
+            'bank_account' => 'nullable|string',
+            'bank_name' => 'nullable|string',
+            'account_holder' => 'nullable|string',
+            'image_catin_1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_catin_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ], $message);
     }
 
@@ -49,6 +57,18 @@ class ManageWeddingController extends Controller
             $data->catin_2 = $request->catin_2;
             $data->bio_catin_1 = $request->bio_catin_1;
             $data->bio_catin_2 = $request->bio_catin_2;
+
+            // Handle Catin 1 image upload
+            if ($request->hasFile('image_catin_1')) {
+                $imagePath = $request->file('image_catin_1')->store('wedding-catins', 'public');
+                $data->image_catin_1 = $imagePath;
+            }
+        
+            // Handle Catin 2 image upload
+            if ($request->hasFile('image_catin_2')) {
+                $imagePath = $request->file('image_catin_2')->store('wedding-catins', 'public');
+                $data->image_catin_2 = $imagePath;
+            }
             $data->ayah_catin1 = $request->ayah_catin1;
             $data->ibu_catin1 = $request->ibu_catin1;
             $data->ayah_catin2 = $request->ayah_catin2;
@@ -59,6 +79,13 @@ class ManageWeddingController extends Controller
             $data->ceremony_address = $request->ceremony_address;
             $data->party = $request->party;
             $data->party_address = $request->party_address;
+            $data->google_maps_url = $request->google_maps_url;
+            $data->waze_url = $request->waze_url;
+            $data->bank_account = $request->bank_account;
+            $data->bank_name = $request->bank_name;
+            $data->account_holder = $request->account_holder;
+            $data->present_counter = $request->present_counter ?? 0;
+            $data->not_present_counter = $request->not_present_counter ?? 0;
             if($data->save()){
                 $user = new User();
                 $user->name = $request->slug;
@@ -91,6 +118,25 @@ class ManageWeddingController extends Controller
             $data->catin_2 = $request->catin_2;
             $data->bio_catin_1 = $request->bio_catin_1;
             $data->bio_catin_2 = $request->bio_catin_2;
+            // Handle Catin 1 image upload
+            if ($request->hasFile('image_catin_1')) {
+                // Delete old image if exists
+                if ($data->image_catin_1) {
+                    Storage::disk('public')->delete($data->image_catin_1);
+                }
+                $imagePath = $request->file('image_catin_1')->store('wedding-catins', 'public');
+                $data->image_catin_1 = $imagePath;
+            }
+            
+            // Handle Catin 2 image upload
+            if ($request->hasFile('image_catin_2')) {
+                // Delete old image if exists
+                if ($data->image_catin_2) {
+                    Storage::disk('public')->delete($data->image_catin_2);
+                }
+                $imagePath = $request->file('image_catin_2')->store('wedding-catins', 'public');
+                $data->image_catin_2 = $imagePath;
+            }
             $data->ayah_catin1 = $request->ayah_catin1;
             $data->ibu_catin1 = $request->ibu_catin1;
             $data->ayah_catin2 = $request->ayah_catin2;
@@ -101,6 +147,13 @@ class ManageWeddingController extends Controller
             $data->ceremony_address = $request->ceremony_address;
             $data->party = $request->party;
             $data->party_address = $request->party_address;
+            $data->google_maps_url = $request->google_maps_url;
+            $data->waze_url = $request->waze_url;
+            $data->bank_account = $request->bank_account;
+            $data->bank_name = $request->bank_name;
+            $data->account_holder = $request->account_holder;
+            $data->present_counter = $request->present_counter ?? 0;
+            $data->not_present_counter = $request->not_present_counter ?? 0;
             if($data->update()){
                 return json_encode(array('success' => 'Wedding Project Updated Successfully'));
             }else{
@@ -123,6 +176,9 @@ class ManageWeddingController extends Controller
             ->addColumn('action', function($data){
                 return "
     				<a href=\"#\" class=\"btn btn-outline-success btn-sm legitRipple\" id=\"edit\" style=\"padding-bottom: 1px;\"><i class=\"fe-edit\"></i> Edit</a>
+                    <a href=\"#\" class=\"btn btn-outline-primary btn-sm legitRipple\" id=\"manage_banner\" style=\"padding-bottom: 1px;\"><i class=\"fe-image\"></i> Banner</a>
+                    <a href=\"#\" class=\"btn btn-outline-info btn-sm legitRipple\" id=\"manage_love_story\" style=\"padding-bottom: 1px;\"><i class=\"fe-heart\"></i> Love Story</a>
+                    <a href=\"#\" class=\"btn btn-outline-warning btn-sm legitRipple\" id=\"manage_gallery\" style=\"padding-bottom: 1px;\"><i class=\"fe-camera\"></i> Gallery</a>
                     <a href=\"#\" class=\"btn btn-outline-danger btn-sm legitRipple\" id=\"delete\" style=\"padding-bottom: 1px;\"><i class=\"fe-trash\"></i> Delete</a>
                 ";
             })

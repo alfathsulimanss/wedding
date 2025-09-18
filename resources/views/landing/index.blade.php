@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ url('assets/landing/assets/images/favicon.png') }}">
     <title> {{ $wedding->slug }} - Wedding Invitation</title>
     <link href="{{ url('assets/landing/assets/css/themify-icons.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/landing/assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="{{ url('assets/landing/assets/css/flaticon.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -26,6 +26,19 @@
     <link href="{{ url('assets/landing/assets/css/odometer-theme-default.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/sass/style.css') }}" rel="stylesheet">
+
+    <style>
+        .wpo-event-section .wpo-event-wrap .wpo-event-item .wpo-event-text ul li a:before {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            content: "";
+            background: none !important;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -75,7 +88,7 @@
                                             <div class="col col-md-6 col-sm-6">
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                                                     <div class="couple-img">
-                                                        <img src="{{ url('assets/landing/assets/images/couple/P1.jpg') }}" alt="">
+                                                        <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}">
                                                     </div>
                                                     <div class="couple-text">
                                                         <h3>{{ $wedding->catin_1 }}</h3>
@@ -85,7 +98,7 @@
                                             <div class="col col-md-6 col-sm-6">
                                                 <div class="couple-item wow fadeInRightSlow" data-wow-duration="1700ms">
                                                     <div class="couple-img">
-                                                        <img src="{{ url('assets/landing/assets/images/couple/P2.jpg') }}" alt="">
+                                                        <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}">
                                                     </div>
                                                     <div class="couple-text">
                                                         <h3>{{ $wedding->catin_2 }}</h3>
@@ -122,9 +135,9 @@
                         <div class="col-lg-2 col-md-6 col-6 d-lg-block d-none">
 
                         </div>
-                        <div class="col-md-6 col-6 d-lg-none dl-block">
+                        <div class="col-md-6 col-6 d-lg-none dl-block d-flex justify-content-center">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="#"><img src="{{ url('assets/landing/assets/images/logo.png') }}" alt="" style="height: 100px"></a>
+                                <a class="navbar-brand" href="#"><img src="{{ url('assets/landing/assets/images/logo-new.png') }}" alt="" style="height: 70px"></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-1 col-1">
@@ -153,25 +166,18 @@
         <h2 class="hidden">some</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
+                @forelse($wedding->banners->sortBy('sort_order') as $banner)
+                <div class="swiper-slide">
+                    <div class="slide-inner slide-bg-image" data-background="{{ $banner->image_url }}">
+                    </div> <!-- end slide-inner -->
+                </div> <!-- end swiper-slide -->
+                @empty
+                <!-- Fallback to default images if no banners -->
                 <div class="swiper-slide">
                     <div class="slide-inner slide-bg-image" data-background="{{ url('assets/landing/assets/images/slider/slide-1.JPG') }}">
                     </div> <!-- end slide-inner -->
                 </div> <!-- end swiper-slide -->
-
-                <div class="swiper-slide">
-                    <div class="slide-inner slide-bg-image" data-background="{{ url('assets/landing/assets/images/slider/slide-2.JPG') }}">
-                    </div> <!-- end slide-inner -->
-                </div> <!-- end swiper-slide -->
-
-                <div class="swiper-slide">
-                    <div class="slide-inner slide-bg-image" data-background="{{ url('assets/landing/assets/images/slider/slide-3.JPG') }}">
-                    </div> <!-- end slide-inner -->
-                </div> <!-- end swiper-slide -->
-
-                <div class="swiper-slide">
-                    <div class="slide-inner slide-bg-image" data-background="{{ url('assets/landing/assets/images/slider/slide-4.JPG') }}">
-                    </div> <!-- end slide-inner -->
-                </div> <!-- end swiper-slide -->
+                @endforelse
             </div>
             <!-- end swiper-wrapper -->
 
@@ -208,7 +214,7 @@
                     <div class="col col-md-5 col-12">
                         <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                             <div class="couple-img">
-                                <img src="{{ url('assets/landing/assets/images/couple/P1.jpg') }}" alt="">
+                                <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}">
                             </div>
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_1 }}</h3>
@@ -232,7 +238,7 @@
                     <div class="col col-md-5 col-12">
                         <div class="couple-item wow fadeInRightSlow" data-wow-duration="1700ms">
                             <div class="couple-img">
-                                <img src="{{ url('assets/landing/assets/images/couple/P2.jpg') }}" alt="">
+                                <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}">
                             </div>
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_2 }}</h3>
@@ -259,6 +265,26 @@
                 <h2>Our Sweet love story</h2>
             </div>
             <div class="wpo-story-wrap">
+                @forelse($wedding->loveStories->sortBy('order') as $index => $story)
+                <div class="wpo-story-item">
+                    <div class="wpo-story-img-wrap">
+                        <div class="wpo-story-img wow zoomIn" data-wow-duration="1000ms">
+                            <img src="{{ $story->image_url ?? url('assets/landing/assets/images/story/S' . ($index + 1) . '.jpeg') }}" alt="{{ $story->title }}">
+                        </div>
+                        <div class="wpo-img-shape">
+                            <img src="{{ url('assets/landing/assets/images/story/shape.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="wpo-story-content">
+                        <div class="wpo-story-content-inner wow {{ $index % 2 == 0 ? 'fadeInRightSlow' : 'fadeInLeftSlow' }}" data-wow-duration="1700ms">
+                            <h2>{{ $story->title }}</h2>
+                            <span>{{ $story->date->format('d F Y') }}</span>
+                            <p>{{ $story->description }}</p>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <!-- Fallback to default love stories if none exist -->
                 <div class="wpo-story-item">
                     <div class="wpo-story-img-wrap">
                         <div class="wpo-story-img wow zoomIn" data-wow-duration="1000ms">
@@ -276,40 +302,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wpo-story-item">
-                    <div class="wpo-story-img-wrap">
-                        <div class="wpo-story-img wow zoomIn" data-wow-duration="1000ms">
-                            <img src="{{ url('assets/landing/assets/images/story/S2.jpeg') }}" alt="">
-                        </div>
-                        <div class="wpo-img-shape">
-                            <img src="{{ url('assets/landing/assets/images/story/shape.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="wpo-story-content">
-                        <div class="wpo-story-content-inner wow fadeInLeftSlow" data-wow-duration="1700ms">
-                            <h2>Our First Date</h2>
-                            <span>6 February 2018</span>
-                            <p>Setelah 3 tahun saling berkomunikasi, pada tanggal 6 Februari 2018, kami bertemu dan saling memiliki rasa. Saat kami berjalan dan menikmati pemandangan di Tugu Merpati, kami saling bercanda dan tertawa bersama.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpo-story-item">
-                    <div class="wpo-story-img-wrap">
-                        <div class="wpo-story-img wow zoomIn" data-wow-duration="1000ms">
-                            <img src="{{ url('assets/landing/assets/images/story/S3.jpeg') }}" alt="">
-                        </div>
-                        <div class="wpo-img-shape">
-                            <img src="{{ url('assets/landing/assets/images/story/shape.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="wpo-story-content">
-                        <div class="wpo-story-content-inner wow fadeInRightSlow" data-wow-duration="1700ms">
-                            <h2>She Said Yes</h2>
-                            <span>19 Oktober 2020</span>
-                            <p>Setelah melewati banyak halangan dan drama yg sangat panjang untuk menjawab “ya”. Dari sini kami mulai LDR smpai akhirnya bertemu kembali pada 14 Oktober 2022. Semuanya terasa seperti mimpi yang menjadi kenyataan.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div> <!-- end container -->
     </section>
@@ -331,116 +324,32 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="portfolio-grids gallery-container clearfix">
+                            @forelse($wedding->galleries->sortBy('order') as $gallery)
                             <div class="grid">
                                 <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/1.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/1.JPG') }}" alt class="img img-responsive">
+                                    <a href="{{ $gallery->image_url }}" class="fancybox" data-fancybox-group="gall-1">
+                                        <img src="{{ $gallery->image_url }}" alt class="img img-responsive">
                                         <div class="hover-content">
                                             <i class="ti-plus"></i>
                                         </div>
                                     </a>
                                 </div>
                             </div>
+                            @empty
+                            <!-- Fallback to default gallery images if none exist -->
+                            @for($i = 1; $i <= 10; $i++)
                             <div class="grid">
                                 <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/2.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/2.JPG') }}" alt class="img img-responsive">
+                                    <a href="{{ url('assets/landing/assets/images/portfolio/' . $i . '.JPG') }}" class="fancybox" data-fancybox-group="gall-1">
+                                        <img src="{{ url('assets/landing/assets/images/portfolio/' . $i . '.JPG') }}" alt class="img img-responsive">
                                         <div class="hover-content">
                                             <i class="ti-plus"></i>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/3.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/3.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/4.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/4.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/5.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/5.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/6.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/6.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/7.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/7.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/8.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/8.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/9.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/9.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <a href="{{ url('assets/landing/assets/images/portfolio/10.JPG') }}" class="fancybox"
-                                       data-fancybox-group="gall-1">
-                                        <img src="{{ url('assets/landing/assets/images/portfolio/10.JPG') }}" alt class="img img-responsive">
-                                        <div class="hover-content">
-                                            <i class="ti-plus"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            @endfor
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -458,8 +367,8 @@
                 <h2>When & Where</h2>
             </div>
             <div class="wpo-event-wrap">
-                <div class="row">
-                    <div class="col col-lg-4 col-md-6 col-12">
+                <div class="row justify-content-center">
+                    <div class="col col-lg-6 col-md-8 col-12">
                         <div class="wpo-event-item">
                             <div class="wpo-event-img">
                                 <img src="{{ url('assets/landing/assets/images/event/E1.JPG') }}" alt="">
@@ -469,53 +378,93 @@
                                 <ul>
                                     <li>{{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y h:i A') }}</li>
                                     <li>{{ $wedding->reception_address }}</li>
-                                    <li> <a class="popup-gmaps"
-                                            href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d614.314937471515!2d100.58394672875288!3d-0.17274831011888037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sid!2sid!4v1681749082113!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">See
-                                            Location</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-4 col-md-6 col-12">
-                        <div class="wpo-event-item">
-                            <div class="wpo-event-img">
-                                <img src="{{ url('assets/landing/assets/images/event/E2.JPG') }}" alt="">
-                                <div class="title"><h2>The Ceremony</h2></div>
-                            </div>
-                            <div class="wpo-event-text">
-                                <ul>
-                                    <li>{{ \Carbon\Carbon::parse($wedding->ceremony)->format('d F Y h A') }}</li>
-                                    <li>{{ $wedding->ceremony_address }}</li>
-                                    <li> <a class="popup-gmaps"
-                                            href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d614.314937471515!2d100.58394672875288!3d-0.17274831011888037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sid!2sid!4v1681749082113!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">See
-                                            Location</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-lg-4 col-md-6 col-12">
-                        <div class="wpo-event-item">
-                            <div class="wpo-event-img">
-                                <img src="{{ url('assets/landing/assets/images/event/E3.JPG') }}" alt="">
-                                <div class="title"><h2>The Party</h2></div>
-                            </div>
-                            <div class="wpo-event-text">
-                                <ul>
-                                    <li>{{ \Carbon\Carbon::parse($wedding->party)->format('d F Y h A') }}</li>
-                                    <li>{{ $wedding->party_address }}</li>
-                                    <li> <a class="popup-gmaps"
-                                            href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d614.314937471515!2d100.58394672875288!3d-0.17274831011888037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sid!2sid!4v1681749082113!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">See
-                                            Location</a></li>
+                                    <li class="d-flex justify-content-around gap-3">
+                                        @if($wedding->google_maps_url)
+                                            <a href="{{ $wedding->google_maps_url }}" 
+                                               target="_blank" 
+                                               rel="noopener noreferrer"
+                                               class="btn btn-outline-light rounded px-4 py-2 d-flex align-items-center gap-2"
+                                               style="border: 2px solid #D4B0A5; color: #D4B0A5; text-decoration: none; min-width: 120px; justify-content: center;">
+                                                <i class="fab fa-google"></i>
+                                                <span>Maps</span>
+                                            </a>
+                                        @endif
+                                        @if($wedding->waze_url)
+                                            <a href="{{ $wedding->waze_url }}" 
+                                               target="_blank" 
+                                               rel="noopener noreferrer"
+                                               class="btn btn-outline-light rounded px-4 py-2 d-flex align-items-center gap-2"
+                                               style="border: 2px solid #D4B0A5; color: #D4B0A5; text-decoration: none; min-width: 120px; justify-content: center;">
+                                                <i class="fab fa-waze"></i>
+                                                <span>Waze</span>
+                                            </a>
+                                        @endif
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div> <!-- end container -->
     </section>
     <!-- end wpo-event-section -->
+
+    <!-- start wpo-gifts-section -->
+    <section class="wpo-gifts-section section-padding" id="gifts">
+        <div class="container">
+            <div class="wpo-section-title">
+                <h4>Wedding Gifts</h4>
+                <h2>Send Your Love</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <div class="wpo-gifts-wrap">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 col-12 mb-4">
+                                <div class="gifts-info text-center">
+                                    <div class="bank-logo mb-3">
+                                        <img src="{{ url('assets/landing/assets/images/CIMB-Logo.png') }}" alt="CIMB Bank" style="max-height: 80px;">
+                                    </div>
+                                    @if($wedding->account_holder)
+                                        <p class="account-holder">
+                                            <strong>Account Holder:</strong><br>
+                                            {{ $wedding->account_holder }}
+                                        </p>
+                                    @endif
+                                    @if($wedding->bank_account)
+                                        <p class="account-number mb-2">
+                                            <strong>Account Number:</strong><br>
+                                            <span style="font-size: 1.2em; letter-spacing: 1px;">{{ $wedding->bank_account }}</span>
+                                        </p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="qr-code text-center">
+                                    <h5 class="mb-3">Scan QR Code</h5>
+                                    <div class="qr-image">
+                                        <a href="{{ url('assets/landing/assets/images/cimb-qrcode.JPG') }}" class="fancybox" data-fancybox-group="qr-code">
+                                            <img src="{{ url('assets/landing/assets/images/cimb-qrcode.JPG') }}" alt="CIMB Malaysia QR Code" style="max-width: 400px; width: 100%; cursor: pointer;">
+                                        </a>
+                                    </div>
+                                    <p class="mt-2 text-muted">Scan with your banking app or click to enlarge</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <p class="gifts-message">
+                                    <em>"Your presence is the greatest gift, but if you wish to honor us with a gift, we would be grateful for your contribution to our new journey together."</em>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end wpo-gifts-section -->
 
     <!-- wpo-site-footer start -->
     <div class="wpo-site-footer text-center">
@@ -523,12 +472,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-image">
-                        <a class="logo" href="#"><img src="{{ url('assets/landing/assets/images/logo.png') }}" alt=""></a>
+                        <a class="logo" href="#"><img src="{{ url('assets/landing/assets/images/logo-new.png') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="copyright">
-                        <p>© Copyright {{ \Carbon\Carbon::now()->format('Y') }} | <a href="#">WeddingGue</a> | All right reserved.</p>
+                        <p>© Copyright {{ \Carbon\Carbon::now()->format('Y') }} | <a href="#">ForMyOnlySister</a> | AlfathSuliman.</p>
                     </div>
                 </div>
             </div>
@@ -576,12 +525,56 @@
     document.getElementById('open_invitation').addEventListener('click', function() {
         var audioPlayer = document.getElementById('audio-player');
         audioPlayer.play();
-
         $('#coverModal').modal('hide');
     });
 
     $(window).on('load', function () {
         $('#coverModal').modal('show');
+    });
+
+    // RSVP Form functionality
+    $('#rsvp-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loader
+        $('#c-loader').show();
+        $('.theme-btn').prop('disabled', true);
+        
+        // Hide previous messages
+        $('#success, #error').hide();
+        
+        $.ajax({
+            url: '{{ url("/rsvp/submit") }}',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if(response.success) {
+                    // Update counters
+                    $('.counter-number').eq(0).text(response.present_counter);
+                    $('.counter-number').eq(1).text(response.not_present_counter);
+                    
+                    // Show success message
+                    $('#success').show();
+                    
+                    // Optionally disable form after successful submission
+                    $('#rsvp-form input, #rsvp-form select, #rsvp-form button').prop('disabled', true);
+                } else {
+                    $('#error').text(response.message || 'Error occurred while sending RSVP.').show();
+                }
+            },
+            error: function(xhr) {
+                var errorMessage = 'Error occurred while sending RSVP. Please try again later.';
+                if(xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                }
+                $('#error').text(errorMessage).show();
+            },
+            complete: function() {
+                // Hide loader and re-enable button
+                $('#c-loader').hide();
+                $('.theme-btn').prop('disabled', false);
+            }
+        });
     });
 </script>
 </body>
