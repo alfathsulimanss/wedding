@@ -81,3 +81,5 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/landing/{slug}/{wedding_id}/{invited_id}/{invited_name}', [LandingController::class, 'index']);
 Route::get('/wa', [SendWaNotifController::class, 'sendWa']);
 Route::post('/rsvp/submit', [LandingController::class, 'submitRsvp'])->name('rsvp.submit');
+Route::post('/congratulations/submit', [LandingController::class, 'submitCongratulations'])->name('congratulations.submit');
+Route::get('/congratulations/messages/{wedding}', [LandingController::class, 'getCongratulationsMessages'])->name('congratulations.messages');

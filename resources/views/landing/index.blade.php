@@ -36,7 +36,95 @@
             height: 1px;
             content: "";
             background: none !important;
+        }
 
+        /* Congratulations Section Styles */
+        .wpo-congratulations-section {
+            background: #f8f9fa;
+        }
+
+        .congratulations-form-wrap {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .congratulations-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .congratulations-form .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .congratulations-form .form-control:focus {
+            border-color: #D4B0A5;
+            box-shadow: 0 0 0 0.2rem rgba(212, 176, 165, 0.25);
+        }
+
+        .congratulations-form textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .congratulations-form .btn-primary {
+            background: #D4B0A5;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .congratulations-form .btn-primary:hover {
+            background: #c19a8a;
+            transform: translateY(-2px);
+        }
+
+        .messages-container {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .message-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #D4B0A5;
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .message-content p {
+            margin: 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .congratulations-form-wrap {
+                padding: 20px;
+            }
+            
+            .message-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -88,8 +176,9 @@
                                             <div class="col col-md-6 col-sm-6">
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                                                     <div class="couple-img">
-                                                        <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}">
+                                                        <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                                                     </div>
+
                                                     <div class="couple-text">
                                                         <h3>{{ $wedding->catin_1 }}</h3>
                                                     </div>
@@ -98,7 +187,7 @@
                                             <div class="col col-md-6 col-sm-6">
                                                 <div class="couple-item wow fadeInRightSlow" data-wow-duration="1700ms">
                                                     <div class="couple-img">
-                                                        <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}">
+                                                        <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                                                     </div>
                                                     <div class="couple-text">
                                                         <h3>{{ $wedding->catin_2 }}</h3>
@@ -214,15 +303,15 @@
                     <div class="col col-md-5 col-12">
                         <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                             <div class="couple-img">
-                                <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}">
+                                <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                             </div>
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_1 }}</h3>
-                                <p>{{ $wedding->bio_catin_1 }}</p>
+                                <h6>{{ $wedding->bio_catin_1 }}</h6>
                                 <div class="social">
                                     <ul>
-                                        <li><p>Ayah: {{ $wedding->ayah_catin1 }}</p></li>
-                                        <li><p>Ibu: {{ $wedding->ibu_catin1 }}</p></li>
+                                        <li><h5>Ayah: {{ $wedding->ayah_catin1 }}</h5></li>
+                                        <li><h5>Ibu: {{ $wedding->ibu_catin1 }}</h5></li>
                                     </ul>
                                 </div>
                             </div>
@@ -238,15 +327,15 @@
                     <div class="col col-md-5 col-12">
                         <div class="couple-item wow fadeInRightSlow" data-wow-duration="1700ms">
                             <div class="couple-img">
-                                <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}">
+                                <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                             </div>
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_2 }}</h3>
-                                <p>{{ $wedding->bio_catin_2 }}</p>
+                                <h6>{{ $wedding->bio_catin_2 }}</h6>
                                 <div class="social">
                                     <ul>
-                                        <li><p>Ayah: {{ $wedding->ayah_catin2 }}</p></li>
-                                        <li><p>Ibu: {{ $wedding->ibu_catin2 }}</p></li>
+                                        <li><h5>Ayah: {{ $wedding->ayah_catin2 }}</h5></li>
+                                        <li><h5>Ibu: {{ $wedding->ibu_catin2 }}</h5></li>
                                     </ul>
                                 </div>
                             </div>
@@ -279,7 +368,7 @@
                         <div class="wpo-story-content-inner wow {{ $index % 2 == 0 ? 'fadeInRightSlow' : 'fadeInLeftSlow' }}" data-wow-duration="1700ms">
                             <h2>{{ $story->title }}</h2>
                             <span>{{ $story->date->format('d F Y') }}</span>
-                            <p>{{ $story->description }}</p>
+                            <p>{!! $story->description !!}</p>
                         </div>
                     </div>
                 </div>
@@ -371,7 +460,7 @@
                     <div class="col col-lg-6 col-md-8 col-12">
                         <div class="wpo-event-item">
                             <div class="wpo-event-img">
-                                <img src="{{ url('assets/landing/assets/images/event/E1.JPG') }}" alt="">
+                                <img src="{{ url('assets/landing/assets/images/reception.jpg') }}" alt="">
                                 <div class="title"><h2>The Reception</h2></div>
                             </div>
                             <div class="wpo-event-text">
@@ -466,6 +555,65 @@
     </section>
     <!-- end wpo-gifts-section -->
 
+    <!-- start wpo-congratulations-section -->
+    <section class="wpo-congratulations-section section-padding" id="congratulations">
+        <div class="container">
+            <div class="wpo-section-title">
+                <h4>Wedding Wishes</h4>
+                <h2>Send Your Congratulations</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <div class="congratulations-form-wrap">
+                        <form id="congratulations-form" class="congratulations-form">
+                            @csrf
+                            <input type="hidden" name="wedding_id" value="{{ $wedding->id }}">
+                            <input type="hidden" name="invited_id" value="{{ $invitation->id }}">
+                            
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" value="{{ $invitation->name }}" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Write your congratulations message for the happy couple..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <span class="btn-text">Send Congratulations</span>
+                                    <span class="btn-loader" style="display: none;">
+                                        <i class="fa fa-spinner fa-spin"></i> Sending...
+                                    </span>
+                                </button>
+                            </div>
+                            
+                            <div id="congratulations-success" class="alert alert-success" style="display: none;">
+                                <i class="fa fa-check-circle"></i> Thank you! Your congratulations message has been sent successfully.
+                            </div>
+                            
+                            <div id="congratulations-error" class="alert alert-danger" style="display: none;">
+                                <i class="fa fa-exclamation-circle"></i> <span class="error-text"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Display existing congratulations messages -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="congratulations-messages">
+                        <h3 class="text-center mb-4">Wedding Wishes from Our Loved Ones</h3>
+                        <div id="messages-container" class="messages-container">
+                            <!-- Messages will be loaded here via AJAX -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end wpo-congratulations-section -->
+
     <!-- wpo-site-footer start -->
     <div class="wpo-site-footer text-center">
         <div class="container">
@@ -538,7 +686,6 @@
         
         // Show loader
         $('#c-loader').show();
-        $('.theme-btn').prop('disabled', true);
         
         // Hide previous messages
         $('#success, #error').hide();
@@ -572,9 +719,91 @@
             complete: function() {
                 // Hide loader and re-enable button
                 $('#c-loader').hide();
-                $('.theme-btn').prop('disabled', false);
             }
         });
+    });
+
+    // Congratulations Form functionality
+    $('#congratulations-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loader
+        $('.btn-text').hide();
+        $('.btn-loader').show();
+        $('#congratulations-form button').prop('disabled', true);
+        
+        // Hide previous messages
+        $('#congratulations-success, #congratulations-error').hide();
+        
+        $.ajax({
+            url: '{{ url("/congratulations/submit") }}',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if(response.success) {
+                    // Show success message
+                    $('#congratulations-success').show();
+                    
+                    // Reset form
+                    $('#congratulations-form')[0].reset();
+                    $('#congratulations-form input[name="name"]').val('{{ $invitation->name }}');
+                    
+                    // Reload messages
+                    loadCongratulationsMessages();
+                } else {
+                    $('#congratulations-error .error-text').text(response.message || 'Error occurred while sending congratulations.');
+                    $('#congratulations-error').show();
+                }
+            },
+            error: function(xhr) {
+                var errorMessage = 'Error occurred while sending congratulations. Please try again later.';
+                if(xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                } else if(xhr.responseJSON && xhr.responseJSON.errors) {
+                    errorMessage = Object.values(xhr.responseJSON.errors)[0][0];
+                }
+                $('#congratulations-error .error-text').text(errorMessage);
+                $('#congratulations-error').show();
+            },
+            complete: function() {
+                // Hide loader and re-enable button
+                $('.btn-text').show();
+                $('.btn-loader').hide();
+                $('#congratulations-form button').prop('disabled', false);
+            }
+        });
+    });
+
+    // Load congratulations messages
+    function loadCongratulationsMessages() {
+        $.ajax({
+            url: '{{ url("/congratulations/messages/" . $wedding->id) }}',
+            type: 'GET',
+            success: function(response) {
+                if(response.success && response.messages) {
+                    var messagesHtml = '';
+                    response.messages.forEach(function(message) {
+                        messagesHtml += `
+                            <div class="message-item">
+                                <div class="message-header">
+                                    <strong>${message.name}</strong>
+                                    <small class="text-muted">${message.created_at}</small>
+                                </div>
+                                <div class="message-content">
+                                    <p>${message.message}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $('#messages-container').html(messagesHtml);
+                }
+            }
+        });
+    }
+
+    // Load messages on page load
+    $(document).ready(function() {
+        loadCongratulationsMessages();
     });
 </script>
 </body>

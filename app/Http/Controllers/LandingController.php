@@ -8,6 +8,7 @@ use App\Models\WeddingBanner;
 use App\Models\WeddingGallery;
 use App\Models\WeddingLoveStory;
 use App\Models\RsvpResponse;
+use App\Models\Congratulations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -128,6 +129,88 @@ class LandingController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Server error occurred. Please try again later.'
+            ], 500);
+        }
+    }
+    
+    public function submitCongratulations(Request $request)
+    {
+        try {
+            $request->validate([
+                'wedding_id' => 'required|exists:wedding,id',
+                'invited_id' => 'required|exists:invitation_list,id',
+                'name' => 'required|string|max:255',
+                'message' => 'required|string|max:1000',
+            ]);
+    
+            // Check if invitation belongs to the wedding
+            $invitation = InvitationList::where('id', $request->invited_id)
+                ->where('wedding_id', $request->wedding_id)
+                ->first();
+    
+            if (!$invitation) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid invitation.'
+                ], 400);
+            }
+    
+            // Check if congratulations already exists
+            $existingCongratulations = Congratulations::where('wedding_id', $request->wedding_id)
+                ->where('invited_id', $request->invited_id)
+                ->first();
+    
+            if ($existingCongratulations) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You have already sent congratulations for this wedding.'
+                ], 400);
+            }
+    
+            // Create congratulations
+            Congratulations::create([
+                'wedding_id' => $request->wedding_id,
+                'invited_id' => $request->invited_id,
+                'name' => $request->name,
+                'message' => $request->message
+            ]);
+    
+            return response()->json([
+                'success' => true,
+                'message' => 'Congratulations sent successfully!'
+            ]);
+    
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation failed.',
+                'errors' => $e->errors()
+            ], 422);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while sending congratulations.'
+            ], 500);
+        }
+    }
+    
+    public function getCongratulationsMessages(Wedding $wedding)
+    {
+        try {
+            $messages = Congratulations::where('wedding_id', $wedding->id)
+                ->orderBy('created_at', 'desc')
+                ->limit(20)
+                ->get(['name', 'message', 'created_at']);
+    
+            return response()->json([
+                'success' => true,
+                'messages' => $messages
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while loading messages.'
             ], 500);
         }
     }
