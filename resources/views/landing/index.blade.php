@@ -634,7 +634,7 @@
     <!-- wpo-site-footer end -->
 
     <!-- color-switcher -->
-    <div class="color-switcher-wrap">
+<!--     <div class="color-switcher-wrap">
         <div class="color-switcher-item">
             <div class="color-toggle-btn">
                 <i class="fa fa-cog"></i>
@@ -654,7 +654,7 @@
                 <li class="btn btn12" id="Button12"></li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </div>
 <!-- end of page-wrapper -->
 
