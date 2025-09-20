@@ -560,7 +560,7 @@
         <div class="container">
             <div class="wpo-section-title">
                 <h4>Wedding Wishes</h4>
-                <h2>Send Your Congratulations</h2>
+<!--                 <h2>Send Your Congratulations</h2> -->
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10 col-12">
@@ -574,12 +574,12 @@
                             </div>
                             
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Write your congratulations message for the happy couple..." required></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Write your wishes for the happy couple..." required></textarea>
                             </div>
                             
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary">
-                                    <span class="btn-text">Send Congratulations</span>
+                                    <span class="btn-text">Send Wishes</span>
                                     <span class="btn-loader" style="display: none;">
                                         <i class="fa fa-spinner fa-spin"></i> Sending...
                                     </span>
@@ -587,7 +587,7 @@
                             </div>
                             
                             <div id="congratulations-success" class="alert alert-success" style="display: none;">
-                                <i class="fa fa-check-circle"></i> Thank you! Your congratulations message has been sent successfully.
+                                <i class="fa fa-check-circle"></i> Thank you! Your Wishes has been sent and save to our heart.
                             </div>
                             
                             <div id="congratulations-error" class="alert alert-danger" style="display: none;">
