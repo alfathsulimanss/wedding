@@ -544,7 +544,7 @@
                         <div class="row mt-4">
                             <div class="col-12 text-center">
                                 <p class="gifts-message">
-                                    <em>"Kehadiran anda adalah hadiah yang paling bermakna buat kami. Namun, sekiranya anda ingin meraikan kami dengan hadiah, kami amat menghargai sumbangan anda untuk perjalanan baharu kami bersama."</em>
+                                    <em>"Kehadiran anda adalah hadiah yang paling bermakna buat kami. Namun, sekiranya anda ingin meraikan kami dengan hadiah, kami amat menghargai sumbangan anda untuk perjalanan baharu kami bersama."<br>#AIDILamuncintaI`ZZAH</em>
                                 </p>
                             </div>
                         </div>
