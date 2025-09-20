@@ -163,7 +163,7 @@ class LandingController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'An error occurred while sending congratulations.' . $e->getMessage()
+                'message' => 'An error occurred while sending congratulation.' . $e->getMessage()
             ], 500);
         }
     }
