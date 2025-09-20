@@ -168,7 +168,7 @@
 <!--                             <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p> -->
 <!--                             <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p> -->
 
-                            <p class="mt-5">Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
+                            <p class="mt-5">Kami Mengundang Anda Untuk Hadir Di Majlis Pernikahan Kami.</p>
                             <section class="wpo-couple-section section-padding" id="couple">
                                 <div class="container">
                                     <div class="couple-area clearfix">
