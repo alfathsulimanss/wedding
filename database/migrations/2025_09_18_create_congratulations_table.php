@@ -11,12 +11,9 @@ return new class extends Migration
         Schema::create('congratulations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('wedding_id')->constrained('wedding')->onDelete('cascade');
-            $table->foreignId('invited_id')->constrained('invitation_list')->onDelete('cascade');
             $table->string('name');
             $table->text('message');
             $table->timestamps();
-            
-            $table->unique(['wedding_id', 'invited_id']);
         });
     }
 

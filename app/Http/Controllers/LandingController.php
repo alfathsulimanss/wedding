@@ -138,39 +138,13 @@ class LandingController extends Controller
         try {
             $request->validate([
                 'wedding_id' => 'required|exists:wedding,id',
-                'invited_id' => 'required|exists:invitation_list,id',
                 'name' => 'required|string|max:255',
                 'message' => 'required|string|max:1000',
             ]);
     
-            // Check if invitation belongs to the wedding
-            $invitation = InvitationList::where('id', $request->invited_id)
-                ->where('wedding_id', $request->wedding_id)
-                ->first();
-    
-            if (!$invitation) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Invalid invitation.'
-                ], 400);
-            }
-    
-            // Check if congratulations already exists
-            $existingCongratulations = Congratulations::where('wedding_id', $request->wedding_id)
-                ->where('invited_id', $request->invited_id)
-                ->first();
-    
-            if ($existingCongratulations) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'You have already sent congratulations for this wedding.'
-                ], 400);
-            }
-    
             // Create congratulations
             Congratulations::create([
                 'wedding_id' => $request->wedding_id,
-                'invited_id' => $request->invited_id,
                 'name' => $request->name,
                 'message' => $request->message
             ]);
@@ -187,10 +161,9 @@ class LandingController extends Controller
                 'errors' => $e->errors()
             ], 422);
         } catch (\Exception $e) {
-            dd($e->getMessage());
             return response()->json([
                 'success' => false,
-                'message' => 'An error occurred while sending congratulations.'
+                'message' => 'An error occurred while sending congratulations.' . $e->getMessage()
             ], 500);
         }
     }

@@ -397,7 +397,7 @@
     </section>
 
     <audio id="audio-player">
-        <source src="{{ asset('assets/landing/assets/audio/Audio.mp3') }}" type="audio/mpeg">
+        <source src="{{ asset('assets/landing/assets/audio/Audio2.mp3') }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <!-- end story-section -->
@@ -568,10 +568,9 @@
                         <form id="congratulations-form" class="congratulations-form">
                             @csrf
                             <input type="hidden" name="wedding_id" value="{{ $wedding->id }}">
-                            <input type="hidden" name="invited_id" value="{{ $invitation->id }}">
-                            
+
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Your Name" value="{{ $invitation->name }}" readonly>
+                                <input type="text" class="form-control" name="name" placeholder="Your Name">
                             </div>
                             
                             <div class="form-group">
