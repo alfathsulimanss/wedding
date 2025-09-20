@@ -284,7 +284,7 @@
                 <span class="shape-2"><img src="{{ url('assets/landing/assets/images/slider/shape2.png') }}" alt=""> </span>
             </h2>
 <!--             <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p> -->
-            <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p>
+            <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married On {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p>
             <div class="row wow fadeInUp" data-wow-duration="1400ms">
                 <div class="col col-xs-12">
                     <div class="clock-grids">
