@@ -165,10 +165,10 @@
                                 {!! $wedding->slug !!}
                                 <span class="shape-2"><img src="{{ url('assets/landing/assets/images/slider/shape2.png') }}" alt=""> </span>
                             </h2>
-                            <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p>
-                            <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p>
+<!--                             <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p> -->
+<!--                             <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p> -->
 
-                            <p class="mt-5">Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.</p>
+                            <p class="mt-5">Kami Mengundang Anda Untuk Hadir Di Majlis Pernikahan Kami.</p>
                             <section class="wpo-couple-section section-padding" id="couple">
                                 <div class="container">
                                     <div class="couple-area clearfix">
@@ -283,8 +283,8 @@
                 {!! $wedding->slug !!}
                 <span class="shape-2"><img src="{{ url('assets/landing/assets/images/slider/shape2.png') }}" alt=""> </span>
             </h2>
-            <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p>
-            <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p>
+<!--             <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p> -->
+            <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married On {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p>
             <div class="row wow fadeInUp" data-wow-duration="1400ms">
                 <div class="col col-xs-12">
                     <div class="clock-grids">
@@ -307,11 +307,11 @@
                             </div>
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_1 }}</h3>
-                                <h6>{{ $wedding->bio_catin_1 }}</h6>
+<!--                                 <h6>{{ $wedding->bio_catin_1 }}</h6> -->
                                 <div class="social">
                                     <ul>
-                                        <li><h5>Ayah: {{ $wedding->ayah_catin1 }}</h5></li>
-                                        <li><h5>Ibu: {{ $wedding->ibu_catin1 }}</h5></li>
+                                        <li><h5>{{ $wedding->ayah_catin1 }}</h5></li>
+                                        <li><h5>{{ $wedding->ibu_catin1 }}</h5></li>
                                     </ul>
                                 </div>
                             </div>
@@ -331,11 +331,11 @@
                             </div>
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_2 }}</h3>
-                                <h6>{{ $wedding->bio_catin_2 }}</h6>
+<!--                                 <h6>{{ $wedding->bio_catin_2 }}</h6> -->
                                 <div class="social">
                                     <ul>
-                                        <li><h5>Ayah: {{ $wedding->ayah_catin2 }}</h5></li>
-                                        <li><h5>Ibu: {{ $wedding->ibu_catin2 }}</h5></li>
+                                        <li><h5>{{ $wedding->ayah_catin2 }}</h5></li>
+                                        <li><h5>{{ $wedding->ibu_catin2 }}</h5></li>
                                     </ul>
                                 </div>
                             </div>
@@ -367,7 +367,7 @@
                     <div class="wpo-story-content">
                         <div class="wpo-story-content-inner wow {{ $index % 2 == 0 ? 'fadeInRightSlow' : 'fadeInLeftSlow' }}" data-wow-duration="1700ms">
                             <h2>{{ $story->title }}</h2>
-                            <span>{{ $story->date->format('d F Y') }}</span>
+<!--                             <span>{{ $story->date->format('d F Y') }}</span> -->
                             <p>{!! $story->description !!}</p>
                         </div>
                     </div>
@@ -544,7 +544,7 @@
                         <div class="row mt-4">
                             <div class="col-12 text-center">
                                 <p class="gifts-message">
-                                    <em>"Your presence is the greatest gift, but if you wish to honor us with a gift, we would be grateful for your contribution to our new journey together."</em>
+                                    <em>"Kehadiran anda adalah hadiah yang paling bermakna buat kami. Namun, sekiranya anda ingin meraikan kami dengan hadiah, kami amat menghargai sumbangan anda untuk perjalanan baharu kami bersama."<br>#AIDILamuncintaI`ZZAH</em>
                                 </p>
                             </div>
                         </div>
@@ -633,7 +633,7 @@
     <!-- wpo-site-footer end -->
 
     <!-- color-switcher -->
-    <div class="color-switcher-wrap">
+<!--     <div class="color-switcher-wrap">
         <div class="color-switcher-item">
             <div class="color-toggle-btn">
                 <i class="fa fa-cog"></i>
@@ -653,7 +653,7 @@
                 <li class="btn btn12" id="Button12"></li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </div>
 <!-- end of page-wrapper -->
 
