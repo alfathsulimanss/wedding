@@ -367,7 +367,7 @@
                     <div class="wpo-story-content">
                         <div class="wpo-story-content-inner wow {{ $index % 2 == 0 ? 'fadeInRightSlow' : 'fadeInLeftSlow' }}" data-wow-duration="1700ms">
                             <h2>{{ $story->title }}</h2>
-                            <span>{{ $story->date->format('d F Y') }}</span>
+<!--                             <span>{{ $story->date->format('d F Y') }}</span> -->
                             <p>{!! $story->description !!}</p>
                         </div>
                     </div>
@@ -544,7 +544,7 @@
                         <div class="row mt-4">
                             <div class="col-12 text-center">
                                 <p class="gifts-message">
-                                    <em>"Your presence is the greatest gift, but if you wish to honor us with a gift, we would be grateful for your contribution to our new journey together."</em>
+                                    <em>"Kehadiran anda adalah hadiah yang paling bermakna buat kami. Namun, sekiranya anda ingin meraikan kami dengan hadiah, kami amat menghargai sumbangan anda untuk perjalanan baharu kami bersama."</em>
                                 </p>
                             </div>
                         </div>
