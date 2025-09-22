@@ -26,8 +26,7 @@
     <link href="{{ url('assets/landing/assets/css/odometer-theme-default.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/sass/style.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 
 
