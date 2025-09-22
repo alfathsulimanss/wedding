@@ -255,7 +255,7 @@
                         </div>
                         <div class="col-md-6 col-6 d-lg-none dl-block d-flex justify-content-center">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="#"><img src="{{ url('assets/landing/assets/images/logo-new.png') }}" alt="" style="height: 70px"></a>
+                                <a class="navbar-brand" href="#"><img src="{{ url('assets/landing/assets/images/weds-logo.png') }}" alt="" style="height: 70px"></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-1 col-1">
@@ -648,7 +648,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-image">
-                        <a class="logo" href="#"><img src="{{ url('assets/landing/assets/images/logo-new.png') }}" alt=""></a>
+                        <a class="logo" href="#"><img src="{{ url('assets/landing/assets/images/weds-logo.png') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-12">
