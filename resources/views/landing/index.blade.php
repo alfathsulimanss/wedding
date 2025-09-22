@@ -188,7 +188,7 @@
 <!--                             <p class="wow fadeInUp" data-wow-duration="1200ms">Dear {{ $invitation->name }}</p> -->
 <!--                             <p class="wow fadeInUp" data-wow-duration="1200ms">We Are Getting Married {{ \Carbon\Carbon::parse($wedding->reception)->format('d F Y') }}</p> -->
 
-                            <p class="mt-5">Assalamualaikum W.B.T & Salam Sejahtera</p>
+                            <p class="custom1-text">Assalamualaikum W.B.T & Salam Sejahtera</p>
                             <section class="wpo-couple-section section-padding" id="couple">
                                 <div class="container">
                                     <div class="couple-area clearfix">
@@ -226,7 +226,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    <p class="mt-5">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami</p>
+                                    <p class="custom1-text">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami</p>
                                     </div>
                                 </div> <!-- end container -->
                             </section>
@@ -338,7 +338,7 @@
                             <div class="couple-img">
                                 <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                             </div>
-                            <div class="couple-text">
+                            <div class="parents-names">
                                 <h3>{{ $wedding->catin_1 }}</h3>
 <!--                                 <h6>{{ $wedding->bio_catin_1 }}</h6> -->
 <!--                                 <div class="social">
@@ -362,7 +362,7 @@
                             <div class="couple-img">
                                 <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                             </div>
-                            <div class="couple-text">
+                            <div class="parents-names">
                                 <h3>{{ $wedding->catin_2 }}</h3>
 <!--                                 <h6>{{ $wedding->bio_catin_2 }}</h6> -->
 <!--                                 <div class="social">
