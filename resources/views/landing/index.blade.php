@@ -26,6 +26,8 @@
     <link href="{{ url('assets/landing/assets/css/odometer-theme-default.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ url('assets/landing/assets/sass/style.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
 
     <style>
         .wpo-event-section .wpo-event-wrap .wpo-event-item .wpo-event-text ul li a:before {
@@ -126,6 +128,24 @@
                 gap: 5px;
             }
         }
+
+        .custom1-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;          /* adjust to your design */
+            font-weight: 600;
+            color: #8c7440;           /* extracted gold-brown tone */
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .parents-names {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c7a348; /* gold tone */
+        }
     </style>
 </head>
 
@@ -179,8 +199,19 @@
                                                         <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                                                     </div> -->
 
-                                                    <div class="couple-text">
+                                                    <div class="parents-names">
                                                         <h3>{{ $wedding->ayah_catin1 }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col col-md-6 col-sm-6">
+                                                <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
+<!--                                                     <div class="couple-img">
+                                                        <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
+                                                    </div> -->
+
+                                                    <div class="parents-names">
+                                                        <h3>&</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -189,7 +220,7 @@
 <!--                                                     <div class="couple-img">
                                                         <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                                                     </div> -->
-                                                    <div class="couple-text">
+                                                    <div class="parents-names">
                                                         <h3>{{ $wedding->ibu_catin1 }}</h3>
                                                     </div>
                                                 </div>
