@@ -139,7 +139,7 @@
             margin-top: 40px;
         }
 
-        .parents-names {
+        .parents-names h3 {
             font-family: 'Cinzel', serif;
             font-size: 42px;
             font-weight: 700;
