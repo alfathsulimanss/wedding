@@ -330,7 +330,9 @@
                                 <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                             </div>
                             <div class="parents-names">
-                                <h3>{{ $wedding->catin_1 }}</h3>
+                                <h3>{{ $wedding->catin_1 }}</h3><br>
+                                <h3>&</h3><br>
+                                <h3>{{ $wedding->catin_2 }}</h3>
 <!--                                 <h6>{{ $wedding->bio_catin_1 }}</h6> -->
 <!--                                 <div class="social">
                                     <ul>
@@ -341,7 +343,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col col-md-2 col-12">
+<!--                     <div class="col col-md-2 col-12">
                         <div class="middle-couple-shape wow fadeInUp" data-wow-duration="1000ms">
                             <div class="shape">
                                 <img src="{{ url('assets/landing/assets/images/couple/shape.png') }}" alt="">
@@ -355,16 +357,16 @@
                             </div>
                             <div class="parents-names">
                                 <h3>{{ $wedding->catin_2 }}</h3>
-<!--                                 <h6>{{ $wedding->bio_catin_2 }}</h6> -->
-<!--                                 <div class="social">
+                                <h6>{{ $wedding->bio_catin_2 }}</h6>
+                                <div class="social">
                                     <ul>
                                         <li><h5>{{ $wedding->ayah_catin2 }}</h5></li>
                                         <li><h5>{{ $wedding->ibu_catin2 }}</h5></li>
                                     </ul>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div> <!-- end container -->
