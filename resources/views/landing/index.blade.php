@@ -194,7 +194,7 @@
                                 <div class="container">
                                     <div class="couple-area clearfix">
                                         <div class="row align-items-center">
-                                            <div class="col col-md-6 col-sm-6">
+<!--                                             <div class="col col-md-6 col-sm-6"> -->
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
 <!--                                                     <div class="couple-img">
                                                         <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
@@ -205,7 +205,7 @@
                                                         <h3>&</h3><br>
                                                         <h3>{{ $wedding->ibu_catin1 }}</h3>
                                                     </div>
-                                                </div>
+<!--                                                 </div> -->
                                             </div>
                                         
 <!--                                             <div class="col col-md-6 col-sm-6">
