@@ -202,7 +202,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    <p class="custom1-text">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami</p>
+                                    <p class="custom1-text">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami<br></p>
                                         <div class="row align-items-center">
                                             <div class="col-12 text-center">
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
