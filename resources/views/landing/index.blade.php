@@ -202,20 +202,22 @@
 
                                                     <div class="parents-names">
                                                         <h3>{{ $wedding->ayah_catin1 }}</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="col col-md-6 col-sm-6">
-                                                <div class="couple-item wow fadeInRightSlow" data-wow-duration="1700ms">
-<!--                                                     <div class="couple-img">
-                                                        <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
-                                                    </div> -->
-                                                    <div class="parents-names">
+                                                        <h3>&</h3><br>
                                                         <h3>{{ $wedding->ibu_catin1 }}</h3>
                                                     </div>
                                                 </div>
                                             </div>
+                                        
+<!--                                             <div class="col col-md-6 col-sm-6">
+                                                <div class="couple-item wow fadeInRightSlow" data-wow-duration="1700ms">
+                                                    <div class="couple-img">
+                                                        <img src="{{ $wedding->catin_image_2_url ?? url('assets/landing/assets/images/couple/P2.jpg') }}" alt="{{ $wedding->catin_2 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
+                                                    </div>
+                                                    <div class="parents-names">
+                                                        <h3>{{ $wedding->ibu_catin1 }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div> -->
                                         </div>
                                     <p class="custom1-text">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami</p>
                                     </div>
@@ -330,9 +332,7 @@
                                 <img src="{{ $wedding->catin_image_1_url ?? url('assets/landing/assets/images/couple/P1.jpg') }}" alt="{{ $wedding->catin_1 }}" style="max-height: 400px; width: 60%; object-fit: cover; object-position: center;">
                             </div>
                             <div class="parents-names">
-                                <h3>{{ $wedding->catin_1 }}</h3><br>
-                                <h3>&</h3><br>
-                                <h3>{{ $wedding->catin_2 }}</h3>
+                                <h3>{{ $wedding->catin_1 }}</h3>
 <!--                                 <h6>{{ $wedding->bio_catin_1 }}</h6> -->
 <!--                                 <div class="social">
                                     <ul>
@@ -343,7 +343,7 @@
                             </div>
                         </div>
                     </div>
-<!--                     <div class="col col-md-2 col-12">
+                    <div class="col col-md-2 col-12">
                         <div class="middle-couple-shape wow fadeInUp" data-wow-duration="1000ms">
                             <div class="shape">
                                 <img src="{{ url('assets/landing/assets/images/couple/shape.png') }}" alt="">
@@ -357,16 +357,16 @@
                             </div>
                             <div class="parents-names">
                                 <h3>{{ $wedding->catin_2 }}</h3>
-                                <h6>{{ $wedding->bio_catin_2 }}</h6>
+<!--                                 <h6>{{ $wedding->bio_catin_2 }}</h6>
                                 <div class="social">
                                     <ul>
                                         <li><h5>{{ $wedding->ayah_catin2 }}</h5></li>
                                         <li><h5>{{ $wedding->ibu_catin2 }}</h5></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div> <!-- end container -->
