@@ -195,12 +195,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    <p class="mt-5">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami</p>
                                     </div>
                                 </div> <!-- end container -->
                             </section>
-                            <p class="mt-5">dengan penuh kesyukuran menjemput<br>Datuk/Dato'/Datin/Tuan/Puan<br>ke majlis perkahwinan puteri kami</p>
-<!--                             <p class="mt-5">Datuk/Dato'/Datin/Tuan/Puan</p>
-                            <p class="mt-5">ke majlis perkahwinan puteri kami</p> -->
+
                             <button id="open_invitation" type="button" class="btn btn-secondary"> <i class="ti-book"></i> Buka Undangan </button>
 
                         </div> <!-- end container -->
