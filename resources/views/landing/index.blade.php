@@ -310,12 +310,12 @@
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_1 }}</h3>
 <!--                                 <h6>{{ $wedding->bio_catin_1 }}</h6> -->
-                                <div class="social">
+<!--                                 <div class="social">
                                     <ul>
                                         <li><h5>{{ $wedding->ayah_catin1 }}</h5></li>
                                         <li><h5>{{ $wedding->ibu_catin1 }}</h5></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -334,12 +334,12 @@
                             <div class="couple-text">
                                 <h3>{{ $wedding->catin_2 }}</h3>
 <!--                                 <h6>{{ $wedding->bio_catin_2 }}</h6> -->
-                                <div class="social">
+<!--                                 <div class="social">
                                     <ul>
                                         <li><h5>{{ $wedding->ayah_catin2 }}</h5></li>
                                         <li><h5>{{ $wedding->ibu_catin2 }}</h5></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
