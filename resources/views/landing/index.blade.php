@@ -147,6 +147,15 @@
             letter-spacing: 2px;
             color: #c7a348; /* gold tone */
         }
+
+        .custom2-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;          /* adjust to your design */
+            font-weight: 600;
+            color: #8c7440;           /* extracted gold-brown tone */
+            text-align: center;
+            margin: 8px 0;
+        }
     </style>
 </head>
 
