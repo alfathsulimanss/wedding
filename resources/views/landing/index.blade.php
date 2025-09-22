@@ -208,7 +208,7 @@
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                                                     <div class="parents-names">
                                                         <h3><br>{{ $wedding->catin_1 }}</h3>
-                                                        <h3>&</h3>
+                                                        <p class="custom1-text">dan pasangannya</p>
                                                         <h3>{{ $wedding->catin_2 }}</h3>
                                                     </div>
                                                 </div>
