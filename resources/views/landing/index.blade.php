@@ -195,9 +195,10 @@
                                             <div class="col-12 text-center">
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                                                     <div class="parents-names">
-                                                        <h3>{{ $wedding->ayah_catin1 }}<br>&</h3>
-                                                        <br>
-                                                        <h3>{{ $wedding->ibu_catin1 }}</h3>
+                                                        <h3>{{ $wedding->ayah_catin1 }}
+                                                            <br>&<br>
+                                                            {{ $wedding->ibu_catin1 }}
+                                                        </h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,9 +208,10 @@
                                             <div class="col-12 text-center">
                                                 <div class="couple-item wow fadeInLeftSlow" data-wow-duration="1700ms">
                                                     <div class="parents-names">
-                                                        <h3>{{ $wedding->catin_1 }}</h3>
-                                                        <h3>&</h3><br>
-                                                        <h3>{{ $wedding->catin_2 }}</h3>
+                                                        <h3>{{ $wedding->catin_1 }}
+                                                            <br>&<br>
+                                                            {{ $wedding->catin_2 }}
+                                                        </h3>
                                                     </div>
                                                 </div>
                                             </div>
