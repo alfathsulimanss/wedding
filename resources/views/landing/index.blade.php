@@ -653,7 +653,7 @@
                 </div>
                 <div class="col-12">
                     <div class="copyright">
-                        <p>© Copyright {{ \Carbon\Carbon::now()->format('Y') }} | <a href="#">ForMyOnlySister</a> | AlfathSuliman.</p>
+                        <p>© Copyright {{ \Carbon\Carbon::now()->format('Y') }} | <a href="#">ForMyOnlyLittleSister</a> | AlfathSuliman.</p>
                     </div>
                 </div>
             </div>
